@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -31,7 +31,7 @@ jobs:
           path: '${{ github.workspace }}/target/*.war'
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment:
       name: 'Production'
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'pedrapapeltesourax9'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_845A5891323F4E669E7A77D9AD145394 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B39A329186AE41BD8DF902CE5ED8A1EA }}
           package: '*.war'
